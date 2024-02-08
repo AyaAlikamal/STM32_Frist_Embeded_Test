@@ -1,0 +1,214 @@
+	/*
+ * STM32F4xx_Hal_RCC.h
+ *
+ *  Created on: Feb 5, 2024
+ *      Author: Aya Ali
+ */
+
+#ifndef HAL_DRIVERS_RCC_STM32F4XX_HAL_RCC_H_
+#define HAL_DRIVERS_RCC_STM32F4XX_HAL_RCC_H_
+
+/*------------ Include Section --------------*/
+#include "Common/Std_Types.h"
+#include "Common/Common_Macros.h"
+#include "Hal_Drivers/Common/STM32F4xx_Hal_Def.h"
+/*------------ Macro Declaration Section --------------*/
+#define PERIPH_BASE               0X40000000UL
+#define AHB1PERIPH_BASE          (PERIPH_BASE + 0x00020000UL)
+#define RCC_BASE                 (AHB1PERIPH_BASE + 0x3800UL)
+#define RCC                      ((RCC_TypeDef*)RCC_BASE)
+
+
+#define RCC_AHB1ENR_GPIOAEN_POS  (0U)
+#define RCC_AHB1ENR_GPIOAEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOAEN_POS)
+
+#define RCC_AHB1ENR_GPIOBEN_POS  (1U)
+#define RCC_AHB1ENR_GPIOBEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOBEN_POS)
+
+#define RCC_AHB1ENR_GPIOCEN_POS  (2U)
+#define RCC_AHB1ENR_GPIOCEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOCEN_POS)
+
+#define RCC_AHB1ENR_GPIODEN_POS  (3U)
+#define RCC_AHB1ENR_GPIODEN_MSK  (0x1UL << RCC_AHB1ENR_GPIODEN_POS)
+
+#define RCC_AHB1ENR_GPIOEEN_POS  (4U)
+#define RCC_AHB1ENR_GPIOEEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOEEN_POS)
+
+#define RCC_AHB1ENR_GPIOFEN_POS  (5U)
+#define RCC_AHB1ENR_GPIOFEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOFEN_POS)
+
+#define RCC_AHB1ENR_GPIOGEN_POS  (6U)
+#define RCC_AHB1ENR_GPIOGEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOGEN_POS)
+
+#define RCC_AHB1ENR_GPIOHEN_POS  (7U)
+#define RCC_AHB1ENR_GPIOHEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOHEN_POS)
+
+#define RCC_AHB1ENR_GPIOIEN_POS  (8U)
+#define RCC_AHB1ENR_GPIOIEN_MSK  (0x1UL << RCC_AHB1ENR_GPIOIEN_POS)
+
+#define RCC_CR_HSEON_POS         (16U)
+#define RCC_CR_HSEON_MSK         (0x1UL << RCC_CR_HSEON_POS)
+
+
+#define RCC_OSCILLATORTYPE_NONE  0x00000000U
+#define RCC_OSCILLATORTYPE_HSE   0x00000001U
+#define RCC_OSCILLATORTYPE_HSI   0x00000002U
+#define RCC_OSCILLATORTYPE_LSE   0x00000004U
+#define RCC_OSCILLATORTYPE_LSI   0x00000008U
+
+
+#define RCC_HSE_OFF              ((uint_8)0x00)
+#define RCC_HSE_ON               ((uint_8)0x01)
+
+#define RCC_LSE_OFF              ((uint_8)0x00)
+#define RCC_LSE_ON               ((uint_8)0x01)
+
+#define RCC_HSI_OFF              ((uint_8)0x00)
+#define RCC_HSI_ON               ((uint_8)0x01)
+
+#define RCC_LSI_OFF              ((uint_8)0x00)
+#define RCC_LSI_ON               ((uint_8)0x01)
+
+#define RCC_CFGR_SW0_POS         (0U)
+#define RCC_CFGR_SW0_MSK         (0x1UL<< RCC_CFGR_SW0_POS)
+
+#define RCC_CFGR_SW1_POS         (1U)
+#define RCC_CFGR_SW1_MSK         (0x1UL<< RCC_CFGR_SW1_POS)
+
+#define RCC_CFGR_HPRE_POS        (4U)
+#define RCC_CFGR_HPRE_MSK        (0xFUL << RCC_CFGR_HPRE_POS)
+
+#define RCC_CFGR_HPRE_DIV1       0x00000000U
+#define RCC_CFGR_HPRE_DIV2       0x0000080U
+#define RCC_CFGR_HPRE_DIV4       0x00000090U
+#define RCC_CFGR_HPRE_DIV8       0x000000A0U
+#define RCC_CFGR_HPRE_DIV16      0x000000B0U
+#define RCC_CFGR_HPRE_DIV64      0x000000C0U
+#define RCC_CFGR_HPRE_DIV128     0x000000D0U
+#define RCC_CFGR_HPRE_DIV256     0x000000E0U
+#define RCC_CFGR_HPRE_DIV512     0x000000F0U
+
+#define RCC_CFGR_PPRE1_POS        (10U)
+#define RCC_CFGR_PPRE1_MSK        (0xFUL << RCC_CFGR_PPRE1_POS)
+
+#define RCC_CFGR_PPRE1_DIV1      0x00000000U
+#define RCC_CFGR_PPRE1_DIV2      0x00001000U
+#define RCC_CFGR_PPRE1_DIV4      0x00001400U
+#define RCC_CFGR_PPRE1_DIV8      0x00001800U
+#define RCC_CFGR_PPRE1_DIV16     0x00001C00U
+
+#define RCC_CFGR_PPRE2_POS        (13U)
+#define RCC_CFGR_PPRE2_MSK        (0xFUL << RCC_CFGR_PPRE2_POS)
+
+#define RCC_CFGR_PPRE2_DIV1      0x00000000U
+#define RCC_CFGR_PPRE2_DIV2      0x00008000U
+#define RCC_CFGR_PPRE2_DIV4      0x0000A000U
+#define RCC_CFGR_PPRE2_DIV8      0x0000C000U
+#define RCC_CFGR_PPRE2_DIV16     0x0000E000U
+
+
+#define RCC_SYSCLK_DIV1          RCC_CFGR_HPRE_DIV1
+#define RCC_SYSCLK_DIV2          RCC_CFGR_HPRE_DIV2
+#define RCC_SYSCLK_DIV4          RCC_CFGR_HPRE_DIV4
+#define RCC_SYSCLK_DIV8          RCC_CFGR_HPRE_DIV8
+#define RCC_SYSCLK_DIV16         RCC_CFGR_HPRE_DIV16
+#define RCC_SYSCLK_DIV64         RCC_CFGR_HPRE_DIV64
+#define RCC_SYSCLK_DIV128        RCC_CFGR_HPRE_DIV128
+#define RCC_SYSCLK_DIV256        RCC_CFGR_HPRE_DIV256
+#define RCC_SYSCLK_DIV512        RCC_CFGR_HPRE_DIV512
+
+#define RCC_HCLK_APB1_DIV1       RCC_CFGR_PPRE1_DIV1
+#define RCC_HCLK_APB1_DIV2       RCC_CFGR_PPRE1_DIV2
+#define RCC_HCLK_APB1_DIV4       RCC_CFGR_PPRE1_DIV4
+#define RCC_HCLK_APB1_DIV8       RCC_CFGR_PPRE1_DIV8
+#define RCC_HCLK_APB1_DIV16      RCC_CFGR_PPRE1_DIV16
+
+#define RCC_HCLK_APB2_DIV1       RCC_CFGR_PPRE2_DIV1
+#define RCC_HCLK_APB2_DIV2       RCC_CFGR_PPRE2_DIV2
+#define RCC_HCLK_APB2_DIV4       RCC_CFGR_PPRE2_DIV4
+#define RCC_HCLK_APB2_DIV8       RCC_CFGR_PPRE2_DIV8
+#define RCC_HCLK_APB2_DIV16      RCC_CFGR_PPRE2_DIV16
+
+
+/*------------ DataType Declaration Section --------------*/
+typedef struct{
+
+	volatile uint_32 CR;
+	volatile uint_32 PLLCFGR;
+	volatile uint_32 CFGR;
+	volatile uint_32 CIR;
+	volatile uint_32 AHB1RSTR;
+	volatile uint_32 AHB2RSTR;
+	volatile uint_32 AHB3RSTR;
+	uint_32    RESERVED0;
+	volatile uint_32 APB1RSTR;
+	volatile uint_32 APB2RSTR;
+	 uint_32 RESERVED1[2];
+	 volatile uint_32 AHB1ENR;
+	 volatile uint_32 AHB2ENR;
+	 volatile uint_32 AHB3ENR;
+	 uint_32 RESERVED2;
+	 volatile uint_32 APB1ENR;
+	 volatile uint_32 APB2ENR;
+	 uint_32 RESERVED3[2];
+	 volatile uint_32 AHB1LPENR;
+	 volatile uint_32 AHB2LPENR;
+	 volatile uint_32 AHB3LPENR;
+	 uint_32 RESERVED4;
+	 volatile uint_32 APB1LPENR;
+	 volatile uint_32 APB2LPENR;
+	 uint_32 RESERVED5[2];
+	 volatile uint_32 BDCR;
+	 volatile uint_32 CSR;
+	 uint_32 RESERVED6[2];
+	 volatile uint_32 SSCGR;
+	 volatile uint_32 PLLI2SCFGR;
+}RCC_TypeDef;
+
+
+typedef struct{
+	uint_32 OscillatorType;
+	uint_32 HSEState;
+	uint_32 LSEState;
+	uint_32 HSIState;
+	uint_32 LSIState;
+}RCC_OscInitTypeDef;
+
+typedef struct{
+	uint_32 AHBCLKDriver;
+	uint_32 APB1CLKDriver;
+	uint_32 APB2CLKDriver;
+}RCC_ClkInit_Typedef;
+
+
+
+/*------------ Macro Function Declaration Section --------------*/
+#define HAL_RCC_GPIOA_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOB_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOBEN_MSK))
+#define HAL_RCC_GPIOC_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOCEN_MSK))
+#define HAL_RCC_GPIOD_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIODEN_MSK))
+#define HAL_RCC_GPIOE_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOEEN_MSK))
+#define HAL_RCC_GPIOF_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOFEN_MSK))
+#define HAL_RCC_GPIOG_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOGEN_MSK))
+#define HAL_RCC_GPIOH_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOHEN_MSK))
+#define HAL_RCC_GPIOI_CLK_ENABLE()    (SET_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOIEN_MSK))
+
+
+
+
+
+#define HAL_RCC_GPIOA_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOB_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOC_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOD_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOE_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOF_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOG_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOH_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+#define HAL_RCC_GPIOI_CLK_DISABLE()    (CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN_MSK))
+/*------------ Software Interfaces Section --------------*/
+
+HAL_StatusTypeDef Hal_RCC_OscConfig(RCC_OscInitTypeDef *RCC_OscInitStruct);
+HAL_StatusTypeDef Hal_RCC_ClockConfig(RCC_ClkInit_Typedef *RCC_ClkInitStruct);
+
+#endif /* HAL_DRIVERS_RCC_STM32F4XX_HAL_RCC_H_ */

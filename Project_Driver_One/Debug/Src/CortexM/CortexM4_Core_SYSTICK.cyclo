@@ -1,0 +1,8 @@
+../Src/CortexM/CortexM4_Core_SYSTICK.c:12:8:Systick_Init	2
+../Src/CortexM/CortexM4_Core_SYSTICK.c:35:6:Systick_DeInit	1
+../Src/CortexM/CortexM4_Core_SYSTICK.c:42:6:Systick_WaitBlocking	2
+../Src/CortexM/CortexM4_Core_SYSTICK.c:51:6:Systick_SingleInterval	2
+../Src/CortexM/CortexM4_Core_SYSTICK.c:64:6:Systick_PeriodicInterval	2
+../Src/CortexM/CortexM4_Core_SYSTICK.c:77:9:Systick_GetRemainingTicks	1
+../Src/CortexM/CortexM4_Core_SYSTICK.c:84:9:Systick_GetElapsedTicks	1
+../Src/CortexM/CortexM4_Core_SYSTICK.c:90:6:SysTick_Handler	3

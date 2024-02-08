@@ -1,0 +1,6 @@
+../Src/main.c:41:6:SystickFunc_1	1
+../Src/main.c:45:5:main	1
+../Src/main.c:80:6:USART3_IRQHandler	1
+../Src/main.c:85:6:EXTI15_10_IRQHandler	1
+../Src/main.c:90:6:RTC_Alarm_IRQHandler	1
+../Src/main.c:94:6:SystemClock_Config	1

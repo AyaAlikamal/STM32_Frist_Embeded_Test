@@ -1,0 +1,8 @@
+"./Src/CortexM/CortexM4_Core_NVIC.o"
+"./Src/CortexM/CortexM4_Core_SBC.o"
+"./Src/CortexM/CortexM4_Core_SYSTICK.o"
+"./Src/Hal_Drivers/RCC/STM32F4xx_Hal_RCC.o"
+"./Src/main.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f407vgtx.o"
